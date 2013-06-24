@@ -74,9 +74,9 @@ class YITH_Woocompare_Admin {
 
         add_action( 'woocommerce_settings_tabs_yith_woocompare', array( $this, 'print_plugin_options' ) );
         add_action( 'woocommerce_update_options_yith_woocompare', array( $this, 'update_options' ) );
-        add_action( 'woocommerce_admin_field_slider', array( $this, 'admin_fields_slider' ) );
-        add_action( 'woocommerce_admin_field_picker', array( $this, 'admin_fields_picker' ) );
-        add_action( 'woocommerce_admin_field_attributes', array( $this, 'admin_fields_attributes' ) );
+        if ( !has_action('woocommerce_admin_field_slider')) add_action( 'woocommerce_admin_field_slider', array( $this, 'admin_fields_slider' ) );
+        if ( !has_action('woocommerce_admin_field_picker')) add_action( 'woocommerce_admin_field_picker', array( $this, 'admin_fields_picker' ) );
+        if ( !has_action('woocommerce_admin_field_attributes')) add_action( 'woocommerce_admin_field_attributes', array( $this, 'admin_fields_attributes' ) );
         add_action( 'admin_print_footer_scripts', array( $this, 'admin_fields_image_deps' ) );
 
         add_action( 'woocommerce_update_option_slider', array( $this, 'admin_update_option' ) );
