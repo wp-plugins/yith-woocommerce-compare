@@ -1,2 +1,0 @@
-- Fare documentazione
-- Integrare nei temi il plugin
