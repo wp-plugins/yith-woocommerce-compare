@@ -42,6 +42,17 @@ class YITH_Woocompare_Admin {
      */
     public $default_fields = array();
 
+    /**
+     * Various links
+     *
+     * @var string
+     * @access public
+     * @since 1.0.0
+     */
+    public $banner_url = 'http://cdn.yithemes.com/plugins/yith_woocommerce_compare.php?url';
+    public $banner_img = 'http://cdn.yithemes.com/plugins/yith_woocommerce_compare.php';
+    public $doc_url    = 'http://yithemes.com/docs-plugins/yith_woocommerce_compare/';
+
 
     /**
      * Constructor
@@ -132,6 +143,7 @@ class YITH_Woocompare_Admin {
             '<a href="#yith_woocompare_general">' . __( 'General Settings', 'yit' ) . '</a>'
         ) );
 
+        $this->_printBanner();
         ?>
         <div class="subsubsub_section">
 
@@ -384,6 +396,24 @@ if( $force && isset($_GET['page']) && isset($_GET['tab']) && $_GET['page'] == 'w
 
         wp_enqueue_style( 'yith_woocompare_admin', YITH_WOOCOMPARE_URL . 'assets/css/admin.css' );
         wp_enqueue_script( 'woocompare', YITH_WOOCOMPARE_URL . 'assets/js/woocompare-admin.js', array( 'jquery', 'jquery-ui-sortable' ) );
+    }
+
+
+    /**
+     * Print the banner
+     *
+     * @access protected
+     * @return void
+     * @since 1.0.0
+     */
+    protected function _printBanner() {
+        ?>
+        <div class="yith_banner">
+            <a href="<?php echo $this->banner_url ?>" target="_blank">
+                <img src="<?php echo $this->banner_img ?>" alt="" />
+            </a>
+        </div>
+    <?php
     }
 
 }
