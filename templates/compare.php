@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Woocommerce Compare
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 global $product;
@@ -164,7 +164,7 @@ foreach( $products as $product ) $widths[] = '{ "sWidth": "205px", resizeable:tr
         </tbody>
     </table>
 
-    <?php wp_footer(); ?>
+    <?php do_action('wp_print_footer_scripts'); ?>
 
     <script type="text/javascript">
 

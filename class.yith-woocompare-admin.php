@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH WooCommerce Magnifier
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 if ( !defined( 'YITH_WOOCOMPARE' ) ) { exit; } // Exit if accessed directly
@@ -288,7 +288,8 @@ class YITH_Woocompare_Admin {
         $checkboxes = get_option( $value['id'], $value['default'] == 'all' ? $all : array() );
 
         // add fields that are not still saved
-        $checkboxes = array_merge( $checkboxes, array_diff_assoc( $checkboxes, $all ) );
+        $checkboxes = wp_parse_args( $checkboxes, $all );
+        //$checkboxes = array_merge( $checkboxes, array_diff_assoc( $checkboxes, $all ) );
         ?>
         <tr valign="top">
             <th scope="row" class="titledesc">

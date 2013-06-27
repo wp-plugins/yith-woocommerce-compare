@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Woocommerce Compare
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 if ( !defined( 'YITH_WOOCOMPARE' ) ) { exit; } // Exit if accessed directly
@@ -29,6 +29,14 @@ $options = array(
                 'link' => __( 'Link', 'yit' ),
                 'button' => __( 'Button', 'yit' )
             )
+        ),
+
+        array(
+            'name' => __( 'Link/Button text', 'yit' ),
+            'desc' => __( 'Type the text to use for the button or the link of the compare.', 'yit' ),
+            'id'   => 'yith_woocompare_button_text',
+            'std'  => __( 'Compare', 'yit' ),
+            'type' => 'text'
         ),
 
         array(

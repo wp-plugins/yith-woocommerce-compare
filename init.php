@@ -3,7 +3,7 @@
  * Plugin Name: YITH Woocommerce Compare
  * Plugin URI: http://yithemes.com/
  * Description: YITH Woocommerce Compare allows you to compare more products with woocommerce plugin, through product attributes.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Your Inspiration Themes
  * Author URI: http://yithemes.com/
  * Text Domain: yit
@@ -11,7 +11,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Woocommerce Compare
- * @version 1.0.0
+ * @version 1.0.1
  */
 /*  Copyright 2013  Your Inspiration Themes  (email : plugins@yithemes.com)
 
@@ -37,24 +37,27 @@ if( !defined('YITH_FUNCTIONS') ) {
     require_once( 'yit-common/yith-panel.php' );
 }
 
-// don't active the plugin, without woocommerce
-if ( ! yit_get_plugin_basename_from_slug( 'woocommerce' ) ) return;
+function yith_woocompare_constructor() {
+    global $woocommerce;
+    if ( ! isset( $woocommerce ) ) return;
 
-load_plugin_textdomain( 'yit', false, dirname( plugin_basename( __FILE__ ) ). '/languages/' );
+    load_plugin_textdomain( 'yit', false, dirname( plugin_basename( __FILE__ ) ). '/languages/' );
 
-define( 'YITH_WOOCOMPARE', true );
-define( 'YITH_WOOCOMPARE_VERSION', '1.0.0' );
-define( 'YITH_WOOCOMPARE_URL', plugin_dir_url( __FILE__ ) );
-define( 'YITH_WOOCOMPARE_DIR', plugin_dir_path( __FILE__ ) );
+    define( 'YITH_WOOCOMPARE', true );
+    define( 'YITH_WOOCOMPARE_VERSION', '1.0.1' );
+    define( 'YITH_WOOCOMPARE_URL', plugin_dir_url( __FILE__ ) );
+    define( 'YITH_WOOCOMPARE_DIR', plugin_dir_path( __FILE__ ) );
 
-// Load required classes and functions
-require_once('class.yith-woocompare-helper.php');
-require_once('functions.yith-woocompare.php');
-require_once('class.yith-woocompare-admin.php');
-require_once('class.yith-woocompare-frontend.php');
-require_once('widgets/class.yith-woocompare-widget.php');
-require_once('class.yith-woocompare.php');
+    // Load required classes and functions
+    require_once('class.yith-woocompare-helper.php');
+    require_once('functions.yith-woocompare.php');
+    require_once('class.yith-woocompare-admin.php');
+    require_once('class.yith-woocompare-frontend.php');
+    require_once('widgets/class.yith-woocompare-widget.php');
+    require_once('class.yith-woocompare.php');
 
-// Let's start the game!
-global $yith_woocompare;
-$yith_woocompare = new YITH_Woocompare();
+    // Let's start the game!
+    global $yith_woocompare;
+    $yith_woocompare = new YITH_Woocompare();
+}
+add_action( 'plugins_loaded', 'yith_woocompare_constructor' );

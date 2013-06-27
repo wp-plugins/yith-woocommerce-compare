@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Woocommerce Compare
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 if ( !defined( 'YITH_WOOCOMPARE' ) ) { exit; } // Exit if accessed directly
@@ -326,7 +326,7 @@ if( !class_exists( 'YITH_Woocompare_Frontend' ) ) {
 
             $is_button = !isset( $button_or_link ) || !$button_or_link ? get_option( 'yith_woocompare_is_button' ) : $button_or_link;
 
-            printf( '<a href="%s" class="%s" data-product_id="%d">%s</a>', $this->add_product_url( $product_id ), 'compare' . ( $is_button == 'button' ? ' button' : '' ), $product_id, ( isset( $button_text ) && $button_text != 'default' ? $button_text : __( 'Compare','yit' ) ) );
+            printf( '<a href="%s" class="%s" data-product_id="%d">%s</a>', $this->add_product_url( $product_id ), 'compare' . ( $is_button == 'button' ? ' button' : '' ), $product_id, ( isset( $button_text ) && $button_text != 'default' ? $button_text : get_option( 'yith_woocompare_button_text', __( 'Compare', 'yit' ) ) ) );
         }
 
         /**
