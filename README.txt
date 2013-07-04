@@ -19,6 +19,10 @@ set with the woocommerce attributes in the product configuration.
 You can also add a simple widget with the list of products the users have added, where you can manage them.
 Also you can simply customize the compare table with your style, by editing the specific template.
 
+Working demos are available here:
+**[LIVE DEMO 1](http://demo.yithemes.com/room09/shop/)** - **[LIVE DEMO 2](http://demo.yithemes.com/bazar/shop/)**
+
+
 Full documentation is available [here](http://yithemes.com/docs-plugins/yith_woocommerce_compare/).
 
 
