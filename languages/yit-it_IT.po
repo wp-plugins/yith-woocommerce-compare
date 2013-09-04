@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: YITH Woocommerce Compare\n"
-"POT-Creation-Date: 2013-06-19 18:25+0100\n"
-"PO-Revision-Date: 2013-06-19 18:36+0100\n"
+"POT-Creation-Date: 2013-09-04 15:57+0100\n"
+"PO-Revision-Date: 2013-09-04 15:58+0100\n"
 "Last-Translator: Nicola Mustone <mail@nicolamustone.it>\n"
 "Language-Team: Your Inspiration Themes <support@yithemes.com>\n"
 "Language: English\n"
@@ -14,59 +14,59 @@ msgstr ""
 "X-Poedit-Basepath: ./\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../class.yith-woocompare-admin.php:118
+#: ../class.yith-woocompare-admin.php:129
 msgid "Products Compare"
 msgstr "Compara Prodotti"
 
-#: ../class.yith-woocompare-admin.php:132 ../yith-woocompare-options.php:15
+#: ../class.yith-woocompare-admin.php:143 ../yith-woocompare-options.php:15
 msgid "General Settings"
 msgstr "Impostazioni Generali"
 
-#: ../class.yith-woocompare-frontend.php:133
+#: ../class.yith-woocompare-frontend.php:142
 msgid "Added"
 msgstr "Aggiungo"
 
-#: ../class.yith-woocompare-frontend.php:134 ../templates/compare.php:47
+#: ../class.yith-woocompare-frontend.php:143 ../templates/compare.php:47
 msgid "Product Comparison"
 msgstr "Comparazione Prodotto"
 
-#: ../class.yith-woocompare-frontend.php:238
+#: ../class.yith-woocompare-frontend.php:247
 msgid "In stock"
 msgstr "In stock"
 
-#: ../class.yith-woocompare-frontend.php:314
+#: ../class.yith-woocompare-frontend.php:330 ../yith-woocompare-options.php:38
 #: ../widgets/class.yith-woocompare-widget.php:38
 msgid "Compare"
 msgstr "Compara"
 
-#: ../class.yith-woocompare-frontend.php:467
+#: ../class.yith-woocompare-frontend.php:483
 msgid "No products to compare"
 msgstr "Nessun prodotto da comparare"
 
-#: ../class.yith-woocompare-frontend.php:476 ../templates/compare.php:102
+#: ../class.yith-woocompare-frontend.php:493 ../templates/compare.php:102
 msgid "Remove"
 msgstr "Rimuovi"
 
 #: ../class.yith-woocompare-helper.php:38
+msgid "Image"
+msgstr "Immagine"
+
+#: ../class.yith-woocompare-helper.php:39
 #: ../widgets/class.yith-woocompare-widget.php:55
 msgid "Title"
 msgstr "Titolo"
 
-#: ../class.yith-woocompare-helper.php:39
-msgid "Image"
-msgstr "Immagine"
-
 #: ../class.yith-woocompare-helper.php:40
-msgid "Description"
-msgstr "Descrizione"
-
-#: ../class.yith-woocompare-helper.php:41
 msgid "Price"
 msgstr "Prezzo"
 
-#: ../class.yith-woocompare-helper.php:42
+#: ../class.yith-woocompare-helper.php:41
 msgid "Add to cart"
 msgstr "Aggiungi al carrello"
+
+#: ../class.yith-woocompare-helper.php:42
+msgid "Description"
+msgstr "Descrizione"
 
 #: ../class.yith-woocompare-helper.php:43
 msgid "Availability"
@@ -91,40 +91,49 @@ msgid "Button"
 msgstr "Pulsante"
 
 #: ../yith-woocompare-options.php:35
+#, fuzzy
+msgid "Link/Button text"
+msgstr "Collegamento o Pulsante"
+
+#: ../yith-woocompare-options.php:36
+msgid "Type the text to use for the button or the link of the compare."
+msgstr ""
+
+#: ../yith-woocompare-options.php:43
 msgid "Show button in single product page"
 msgstr "Mostra pulsante nella pagina del dettaglio prodotto"
 
-#: ../yith-woocompare-options.php:36
+#: ../yith-woocompare-options.php:44
 msgid "Say if you want to show the button in the single product page."
 msgstr ""
 "Scegli se vuoi mostrare il pulsante nella pagina dettaglio del prodotto."
 
-#: ../yith-woocompare-options.php:44
+#: ../yith-woocompare-options.php:52
 msgid "Show button in products list"
 msgstr "Mostra pulsante nella lista prodotti"
 
-#: ../yith-woocompare-options.php:45
+#: ../yith-woocompare-options.php:53
 msgid "Say if you want to show the button in the products list."
 msgstr "Imposta se vuoi mostrare il pulsante nella lista prodotti."
 
-#: ../yith-woocompare-options.php:53
+#: ../yith-woocompare-options.php:61
 msgid "Open automatically lightbox"
 msgstr "Apri la lightbox automaticamente"
 
-#: ../yith-woocompare-options.php:54
+#: ../yith-woocompare-options.php:62
 msgid "Open link after click into \"Compare\" button\"."
 msgstr "Apri pagina dopo aver cliccato sul pulsante \"Compare\"."
 
-#: ../yith-woocompare-options.php:66
+#: ../yith-woocompare-options.php:74
 msgid "Table Settings"
 msgstr "Impostazioni tabella."
 
-#: ../yith-woocompare-options.php:73
+#: ../yith-woocompare-options.php:81
 msgid "Fields to show"
 msgstr "Campi da mostrare"
 
-#: ../yith-woocompare-options.php:74 ../yith-woocompare-options.php:83
-#: ../yith-woocompare-options.php:92
+#: ../yith-woocompare-options.php:82 ../yith-woocompare-options.php:91
+#: ../yith-woocompare-options.php:100
 msgid ""
 "Select the fields to show in the comparison table and order them by "
 "drag&drop (are included also the woocommerce attributes)"
@@ -132,19 +141,19 @@ msgstr ""
 "Seleziona i campi da mostrare nella tabella di comparazione e ordinali "
 "attraverso il drag&drop (sono inclusi anche gli attributi di woocommerce)"
 
-#: ../yith-woocompare-options.php:82
+#: ../yith-woocompare-options.php:90
 msgid "Repeat \"Price\" field at the end of the table"
 msgstr "Ripeti il campo \"Prezzo\" alla fine della tabella"
 
-#: ../yith-woocompare-options.php:91
+#: ../yith-woocompare-options.php:99
 msgid "Repeat \"Add to cart\" field at the end of the table"
 msgstr "Ripeti il campo con \"Aggiungi al carrello\" alla fine della tabella"
 
-#: ../yith-woocompare-options.php:100
+#: ../yith-woocompare-options.php:108
 msgid "Image size"
 msgstr "Dimensione immagine"
 
-#: ../yith-woocompare-options.php:101
+#: ../yith-woocompare-options.php:109
 msgid "Set the size for the images"
 msgstr "Imposta la dimensione per le immagini"
 
@@ -174,63 +183,63 @@ msgstr "YITH Woocommerce Compare Widget"
 msgid "Clear all"
 msgstr "Cancella tutti"
 
-#: ../yit-common/yith-panel.php:396
+#: ../yit-common/yith-panel.php:406
 msgid "Select a date"
 msgstr "Seleziona data"
 
-#: ../yit-common/yith-panel.php:397
+#: ../yit-common/yith-panel.php:407
 msgid "Hours"
 msgstr "Ore"
 
-#: ../yit-common/yith-panel.php:398 ../yit-common/yith-panel.php:399
+#: ../yit-common/yith-panel.php:408 ../yit-common/yith-panel.php:409
 msgid "Minutes"
 msgstr "Minuti"
 
-#: ../yit-common/yith-panel.php:407
+#: ../yit-common/yith-panel.php:417
 msgid "Upload"
 msgstr "Carica"
 
-#: ../yit-common/yith-panel.php:434
+#: ../yit-common/yith-panel.php:444
 msgid "px"
 msgstr "px"
 
-#: ../yit-common/yith-panel.php:435
+#: ../yit-common/yith-panel.php:445
 msgid "em"
 msgstr "em"
 
-#: ../yit-common/yith-panel.php:436
+#: ../yit-common/yith-panel.php:446
 msgid "pt"
 msgstr "pt"
 
-#: ../yit-common/yith-panel.php:437
+#: ../yit-common/yith-panel.php:447
 msgid "rem"
 msgstr "rem"
 
-#: ../yit-common/yith-panel.php:447
+#: ../yit-common/yith-panel.php:457
 msgid "Select a font family"
 msgstr "Seleziona la famiglia font"
 
-#: ../yit-common/yith-panel.php:455
+#: ../yit-common/yith-panel.php:465
 msgid "Regular"
 msgstr "Normale"
 
-#: ../yit-common/yith-panel.php:456
+#: ../yit-common/yith-panel.php:466
 msgid "Bold"
 msgstr "Grassetto"
 
-#: ../yit-common/yith-panel.php:457
+#: ../yit-common/yith-panel.php:467
 msgid "Extra bold"
 msgstr "Extra bold"
 
-#: ../yit-common/yith-panel.php:458
+#: ../yit-common/yith-panel.php:468
 msgid "Italic"
 msgstr "Corsivo"
 
-#: ../yit-common/yith-panel.php:459
+#: ../yit-common/yith-panel.php:469
 msgid "Italic bold"
 msgstr "Grassetto corsivo"
 
-#: ../yit-common/yith-panel.php:471
+#: ../yit-common/yith-panel.php:481
 msgid "Click to preview"
 msgstr "Clicca per anteprima"
 

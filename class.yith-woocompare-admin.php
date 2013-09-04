@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH WooCommerce Magnifier
- * @version 1.0.3
+ * @version 1.0.4
  */
 
 if ( !defined( 'YITH_WOOCOMPARE' ) ) { exit; } // Exit if accessed directly
@@ -395,8 +395,10 @@ if( $force && isset($_GET['page']) && isset($_GET['tab']) && $_GET['page'] == 'w
         wp_enqueue_script( 'jquery-ui-slider' );
         wp_enqueue_script( 'jquery-ui-sortable' );
 
-        wp_enqueue_style( 'yith_woocompare_admin', YITH_WOOCOMPARE_URL . 'assets/css/admin.css' );
-        wp_enqueue_script( 'woocompare', YITH_WOOCOMPARE_URL . 'assets/js/woocompare-admin.js', array( 'jquery', 'jquery-ui-sortable' ) );
+        if( isset( $_GET['page'] ) && $_GET['page'] == 'woocommerce_settings' && isset( $_GET['tab'] ) && $_GET['tab'] == 'yith_woocompare' ) {
+            wp_enqueue_style( 'yith_woocompare_admin', YITH_WOOCOMPARE_URL . 'assets/css/admin.css' );
+            wp_enqueue_script( 'woocompare', YITH_WOOCOMPARE_URL . 'assets/js/woocompare-admin.js', array( 'jquery', 'jquery-ui-sortable' ) );
+        }
     }
 
 

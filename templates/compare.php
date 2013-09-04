@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Woocommerce Compare
- * @version 1.0.3
+ * @version 1.0.4
  */
 
 global $product;

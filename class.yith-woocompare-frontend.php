@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Woocommerce Compare
- * @version 1.0.3
+ * @version 1.0.4
  */
 
 if ( !defined( 'YITH_WOOCOMPARE' ) ) { exit; } // Exit if accessed directly
@@ -134,6 +134,7 @@ if( !class_exists( 'YITH_Woocompare_Frontend' ) ) {
             wp_localize_script( 'yith-woocompare-main', 'yith_woocompare', array(
                 'nonceadd' => wp_create_nonce( $this->action_add ),
                 'nonceremove' => wp_create_nonce( $this->action_remove ),
+                'nonceview' => wp_create_nonce( $this->action_view ),
                 'ajaxurl' => admin_url( 'admin-ajax.php' ),
                 'actionadd' => $this->action_add,
                 'actionremove' => $this->action_remove,
@@ -392,7 +393,8 @@ if( !class_exists( 'YITH_Woocompare_Frontend' ) ) {
             $json = array(
                 'table_url' => add_query_arg( array(
                     'action' => $this->action_view,
-                    'iframe' => 'true'
+                    'iframe' => 'true',
+                    'ver' => time()
                 ), site_url() ),
 
                 'widget_table' => $this->list_products_html()
