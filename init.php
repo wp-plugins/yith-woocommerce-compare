@@ -3,7 +3,7 @@
  * Plugin Name: YITH Woocommerce Compare
  * Plugin URI: http://yithemes.com/
  * Description: YITH Woocommerce Compare allows you to compare more products with woocommerce plugin, through product attributes.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: Your Inspiration Themes
  * Author URI: http://yithemes.com/
  * Text Domain: yit
@@ -11,7 +11,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Woocommerce Compare
- * @version 1.0.4
+ * @version 1.0.5
  */
 /*  Copyright 2013  Your Inspiration Themes  (email : plugins@yithemes.com)
 

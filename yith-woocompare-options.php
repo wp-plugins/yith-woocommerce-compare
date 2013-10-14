@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Woocommerce Compare
- * @version 1.0.4
+ * @version 1.0.5
  */
 
 if ( !defined( 'YITH_WOOCOMPARE' ) ) { exit; } // Exit if accessed directly
@@ -75,6 +75,14 @@ $options = array(
             'type' => 'title',
             'desc' => '',
             'id' => 'yith_woocompare_general'
+        ),
+
+        array(
+            'name' => __( 'Table title', 'yit' ),
+            'desc' => __( 'Type the text to use for the table title.', 'yit' ),
+            'id'   => 'yith_woocompare_table_text',
+            'std'  => __( 'Compare products', 'yit' ),
+            'type' => 'text'
         ),
 
         array(

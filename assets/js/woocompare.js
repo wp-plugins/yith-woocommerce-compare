@@ -77,13 +77,15 @@ jQuery(document).ready(function($) {
             if (urlparts.length >= 2) {
                 var prefix = encodeURIComponent(parameter) + '=';
                 var pars = urlparts[1].split(/[&;]/g);
-                for (var i = pars.length; i-- > 0;)
-                    if (pars[i].lastIndexOf(prefix, 0) !== -1)
+                for (var i = pars.length; i-- > 0;) {
+                    if (pars[i].lastIndexOf(prefix, 0) !== -1) {
                         pars.splice(i, 1);
+                    }
+                }
                 response = urlparts[0] + '?' + pars.join('&');
             }
 
-            window.open(response, yith_woocompare.table_title);
+            window.open( response, yith_woocompare.table_title);
         }
     });
 

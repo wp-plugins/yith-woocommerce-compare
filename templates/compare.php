@@ -4,13 +4,13 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Woocommerce Compare
- * @version 1.0.4
+ * @version 1.0.5
  */
 
 global $product;
 
 // remove the style of woocommerce
-if ( defined('WOOCOMMERCE_USE_CSS') && WOOCOMMERCE_USE_CSS ) wp_dequeue_style('woocommerce_frontend_styles');
+if( defined('WOOCOMMERCE_USE_CSS') && WOOCOMMERCE_USE_CSS ) wp_dequeue_style('woocommerce_frontend_styles');
 
 $is_iframe = (bool)( isset( $_REQUEST['iframe'] ) && $_REQUEST['iframe'] );
 
@@ -53,7 +53,7 @@ foreach( $products as $product ) $widths[] = '{ "sWidth": "205px", resizeable:tr
     <link rel="stylesheet" href="<?php echo YITH_WOOCOMPARE_URL ?>assets/css/jquery.dataTables.css"/>
 
     <?php wp_head() ?>
-    
+
     <style type="text/css">
         body.loading {
             background: url("<?php echo YITH_WOOCOMPARE_URL ?>assets/images/colorbox/loading.gif") no-repeat scroll center center transparent;
@@ -64,56 +64,56 @@ foreach( $products as $product ) $widths[] = '{ "sWidth": "205px", resizeable:tr
 <!-- START BODY -->
 <body <?php body_class('woocommerce') ?>>
 
-    <h1>
-        <?php _e( 'Compare products', 'yit' ) ?>
-        <?php if ( ! $is_iframe ) : ?><a class="close" href="#"><?php _e( 'Close window [X]', 'yit' ) ?></a><?php endif; ?>
-    </h1>
+<h1>
+    <?php echo get_option( 'yith_woocompare_table_text' ) ?>
+    <?php if ( ! $is_iframe ) : ?><a class="close" href="#"><?php _e( 'Close window [X]', 'yit' ) ?></a><?php endif; ?>
+</h1>
 
-    <table class="compare-list" cellpadding="0" cellspacing="0"<?php if ( empty( $products ) ) echo ' style="width:100%"' ?>>
-        <thead>
-        <tr>
-            <th>&nbsp;</th>
-            <?php foreach( $products as $i => $product ) : ?>
+<table class="compare-list" cellpadding="0" cellspacing="0"<?php if ( empty( $products ) ) echo ' style="width:100%"' ?>>
+    <thead>
+    <tr>
+        <th>&nbsp;</th>
+        <?php foreach( $products as $i => $product ) : ?>
             <td></td>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>&nbsp;</th>
+        <?php foreach( $products as $i => $product ) : ?>
+            <td></td>
+        <?php endforeach; ?>
+    </tr>
+    </tfoot>
+    <tbody>
+
+    <?php if ( empty( $products ) ) : ?>
+
+        <tr class="no-products">
+            <td><?php _e( 'No products added in the compare table.', 'yit' ) ?></td>
         </tr>
-        </thead>
-        <tfoot>
-        <tr>
+
+    <?php else : ?>
+        <tr class="remove">
             <th>&nbsp;</th>
-            <?php foreach( $products as $i => $product ) : ?>
-                <td></td>
-            <?php endforeach; ?>
+            <?php foreach( $products as $i => $product ) : $product_class = ( $i % 2 == 0 ? 'odd' : 'even' ) . ' product_' . $product->id ?>
+                <td class="<?php echo $product_class; ?>">
+                    <a href="<?php echo add_query_arg( 'redirect', 'view', $this->remove_product_url( $product->id ) ) ?>" data-product_id="<?php echo $product->id; ?>"><?php _e( 'Remove', 'yit' ) ?> <span class="remove">x</span></a>
+                </td>
+            <?php endforeach ?>
         </tr>
-        </tfoot>
-        <tbody>
 
-        <?php if ( empty( $products ) ) : ?>
+        <?php foreach ( $fields as $field => $name ) : ?>
 
-            <tr class="no-products">
-                <td><?php _e( 'No products added in the compare table.', 'yit' ) ?></td>
-            </tr>
+            <tr class="<?php echo $field ?>">
 
-        <?php else : ?>
-            <tr class="remove">
-                <th>&nbsp;</th>
+                <th>
+                    <?php echo $name ?>
+                    <?php if ( $field == 'image' ) echo '<div class="fixed-th"></div>'; ?>
+                </th>
+
                 <?php foreach( $products as $i => $product ) : $product_class = ( $i % 2 == 0 ? 'odd' : 'even' ) . ' product_' . $product->id ?>
-                    <td class="<?php echo $product_class; ?>">
-                        <a href="<?php echo add_query_arg( 'redirect', 'view', $this->remove_product_url( $product->id ) ) ?>" data-product_id="<?php echo $product->id; ?>"><?php _e( 'Remove', 'yit' ) ?> <span class="remove">x</span></a>
-                    </td>
-                <?php endforeach ?>
-            </tr>
-
-            <?php foreach ( $fields as $field => $name ) : ?>
-
-                <tr class="<?php echo $field ?>">
-
-                    <th>
-                        <?php echo $name ?>
-                        <?php if ( $field == 'image' ) echo '<div class="fixed-th"></div>'; ?>
-                    </th>
-
-                    <?php foreach( $products as $i => $product ) : $product_class = ( $i % 2 == 0 ? 'odd' : 'even' ) . ' product_' . $product->id ?>
                     <td class="<?php echo $product_class; ?>"><?php
                         switch( $field ) {
 
@@ -131,48 +131,50 @@ foreach( $products as $product ) $widths[] = '{ "sWidth": "205px", resizeable:tr
                         }
                         ?>
                     </td>
-                    <?php endforeach ?>
+                <?php endforeach ?>
 
-                </tr>
+            </tr>
 
-            <?php endforeach; ?>
+        <?php endforeach; ?>
 
-            <?php if ( $repeat_price == 'yes' && isset( $fields['price'] ) ) : ?>
-                <tr class="price repeated">
-                    <th><?php echo $fields['price'] ?></th>
+        <?php if ( $repeat_price == 'yes' && isset( $fields['price'] ) ) : ?>
+            <tr class="price repeated">
+                <th><?php echo $fields['price'] ?></th>
 
-                    <?php foreach( $products as $i => $product ) : $product_class = ( $i % 2 == 0 ? 'odd' : 'even' ) . ' product_' . $product->id ?>
-                        <td class="<?php echo $product_class ?>"><?php echo $product->fields['price'] ?></td>
-                    <?php endforeach; ?>
+                <?php foreach( $products as $i => $product ) : $product_class = ( $i % 2 == 0 ? 'odd' : 'even' ) . ' product_' . $product->id ?>
+                    <td class="<?php echo $product_class ?>"><?php echo $product->fields['price'] ?></td>
+                <?php endforeach; ?>
 
-                </tr>
-            <?php endif; ?>
-
-            <?php if ( $repeat_add_to_cart == 'yes' && isset( $fields['add-to-cart'] ) ) : ?>
-                <tr class="add-to-cart repeated">
-                    <th><?php echo $fields['add-to-cart'] ?></th>
-
-                    <?php foreach( $products as $i => $product ) : $product_class = ( $i % 2 == 0 ? 'odd' : 'even' ) . ' product_' . $product->id ?>
-                        <td class="<?php echo $product_class ?>"><?php woocommerce_get_template( 'loop/add-to-cart.php' ); ?></td>
-                    <?php endforeach; ?>
-
-                </tr>
-            <?php endif; ?>
-
+            </tr>
         <?php endif; ?>
 
-        </tbody>
-    </table>
+        <?php if ( $repeat_add_to_cart == 'yes' && isset( $fields['add-to-cart'] ) ) : ?>
+            <tr class="add-to-cart repeated">
+                <th><?php echo $fields['add-to-cart'] ?></th>
 
-    <?php do_action('wp_print_footer_scripts'); ?>
+                <?php foreach( $products as $i => $product ) : $product_class = ( $i % 2 == 0 ? 'odd' : 'even' ) . ' product_' . $product->id ?>
+                    <td class="<?php echo $product_class ?>"><?php woocommerce_get_template( 'loop/add-to-cart.php' ); ?></td>
+                <?php endforeach; ?>
 
-    <script type="text/javascript">
+            </tr>
+        <?php endif; ?>
 
-        jQuery(document).ready(function($){
-            <?php if ( $is_iframe ) : ?>$('a').attr('target', '_parent');<?php endif; ?>
+    <?php endif; ?>
 
-            var oTable;
-            $('body').on( 'yith_woocompare_render_table', function(){
+    </tbody>
+</table>
+
+<?php if( wp_script_is( 'responsive-theme', 'enqueued' ) ) wp_dequeue_script( 'responsive-theme' ) ?><?php if( wp_script_is( 'responsive-theme', 'enqueued' ) ) wp_dequeue_script( 'responsive-theme' ) ?>
+<?php do_action('wp_print_footer_scripts'); ?>
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function($){
+        <?php if ( $is_iframe ) : ?>$('a').attr('target', '_parent');<?php endif; ?>
+
+        var oTable;
+        $('body').on( 'yith_woocompare_render_table', function(){
+            if( $( window ).width() > 767 ) {
                 oTable = $('table.compare-list').dataTable( {
                     "sScrollX": "100%",
                     //"sScrollXInner": "150%",
@@ -184,37 +186,41 @@ foreach( $products as $product ) $widths[] = '{ "sWidth": "205px", resizeable:tr
                     "bFilter": false,
                     "bAutoWidth": false
                 } );
+
                 new FixedColumns( oTable );
                 $('<table class="compare-list" />').insertAfter( $('h1') ).hide();
-            }).trigger('yith_woocompare_render_table');
+            }
+        }).trigger('yith_woocompare_render_table');
 
-            // add to cart
-            var button_clicked;
-            $(document).on('click', 'a.add_to_cart_button', function(){
-                button_clicked = $(this);
-                button_clicked.block({message: null, overlayCSS: {background: '#fff url(' + woocommerce_params.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6}});
-            });
-
-            // remove add to cart button after added
-            $('body').on('added_to_cart', function(){
-                button_clicked.hide();
-                <?php if ( $is_iframe ) : ?>$('a').attr('target', '_parent');<?php endif; ?>
-            });
-
-            // close window
-            $(document).on( 'click', 'a.close', function(e){
-                e.preventDefault();
-                window.close();
-            });
-
-            $(window).on( 'yith_woocompare_product_removed', function(){
-                oTable.fnDestroy(true);
-                $('body').trigger('yith_woocompare_render_table');
-            });
-
+        // add to cart
+        var button_clicked;
+        $(document).on('click', 'a.add_to_cart_button', function(){
+            button_clicked = $(this);
+            button_clicked.block({message: null, overlayCSS: {background: '#fff url(' + woocommerce_params.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6}});
         });
 
-    </script>
+        // remove add to cart button after added
+        $('body').on('added_to_cart', function(){
+            button_clicked.hide();
+            <?php if ( $is_iframe ) : ?>$('a').attr('target', '_parent');<?php endif; ?>
+        });
+
+        // close window
+        $(document).on( 'click', 'a.close', function(e){
+            e.preventDefault();
+            window.close();
+        });
+
+        $(window).on( 'yith_woocompare_product_removed', function(){
+            if( $( window ).width() > 767 ) {
+                oTable.fnDestroy(true);
+            }
+            $('body').trigger('yith_woocompare_render_table');
+        });
+
+    });
+
+</script>
 
 </body>
 </html>
