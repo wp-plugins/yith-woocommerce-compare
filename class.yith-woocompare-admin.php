@@ -318,6 +318,16 @@ class YITH_Woocompare_Admin {
      * @since 1.0.0
      */
     public function admin_update_option($value) {
+
+        global $woocommerce;
+
+        if ( version_compare( preg_replace( '/-beta-([0-9]+)/', '', $woocommerce->version ), '2.1', '<' ) ) {
+            $wc_clean = 'woocommerce_clean';
+        }
+        else {
+            $wc_clean = 'wc_clean';
+            }
+
         if ( $value['type'] == 'attributes' ) {
             //$fields = array_merge( $this->default_fields, YITH_Woocompare_Helper::attribute_taxonomies() );
             $val = array();
@@ -329,7 +339,7 @@ class YITH_Woocompare_Admin {
             //yith_debug($val);die;
             update_option( $value['id'], $val );
         } else {
-            update_option( $value['id'], woocommerce_clean($_POST[$value['id']]) );
+            update_option( $value['id'], $wc_clean($_POST[$value['id']]) );
         }
     }
 
