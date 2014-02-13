@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH WooCommerce Magnifier
- * @version 1.0.5
+ * @version 1.1.0
  */
 
 if ( !defined( 'YITH_WOOCOMPARE' ) ) { exit; } // Exit if accessed directly
@@ -84,7 +84,7 @@ class YITH_Woocompare_Admin {
         add_action( 'woocommerce_update_option_attributes', array( $this, 'admin_update_option' ) );
 
         //Filters
-        add_filter( 'woocommerce_settings_tabs_array', array( $this, 'add_tab_woocommerce' ) );
+        add_filter( 'woocommerce_settings_tabs_array', array( $this, 'add_tab_woocommerce' ), 30 );
 
         // YITH WCWL Loaded
         do_action( 'yith_woocompare_loaded' );
