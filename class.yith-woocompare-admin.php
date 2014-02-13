@@ -326,7 +326,7 @@ class YITH_Woocompare_Admin {
         }
         else {
             $wc_clean = 'wc_clean';
-            }
+        }
 
         if ( $value['type'] == 'attributes' ) {
             //$fields = array_merge( $this->default_fields, YITH_Woocompare_Helper::attribute_taxonomies() );
