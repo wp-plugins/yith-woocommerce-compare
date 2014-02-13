@@ -405,7 +405,7 @@ if( $force && isset($_GET['page']) && isset($_GET['tab']) && $_GET['page'] == 'w
         wp_enqueue_script( 'jquery-ui-slider' );
         wp_enqueue_script( 'jquery-ui-sortable' );
 
-        if( isset( $_GET['page'] ) && $_GET['page'] == 'woocommerce_settings' && isset( $_GET['tab'] ) && $_GET['tab'] == 'yith_woocompare' ) {
+        if( isset( $_GET['page'] ) && ( $_GET['page'] == 'woocommerce_settings' || $_GET['page'] == 'wc-settings' ) && isset( $_GET['tab'] ) && $_GET['tab'] == 'yith_woocompare' ) {
             wp_enqueue_style( 'yith_woocompare_admin', YITH_WOOCOMPARE_URL . 'assets/css/admin.css' );
             wp_enqueue_script( 'woocompare', YITH_WOOCOMPARE_URL . 'assets/js/woocompare-admin.js', array( 'jquery', 'jquery-ui-sortable' ) );
         }
