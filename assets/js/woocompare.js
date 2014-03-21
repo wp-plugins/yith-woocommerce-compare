@@ -146,13 +146,16 @@ jQuery(document).ready(function($) {
         .on('click', 'li a.remove, a.clear-all', function (e) {
             e.preventDefault();
 
+            var lang = $( '.yith-woocompare-widget .products-list').data('lang');
+
             var button = $(this),
                 data = {
                     _yitnonce_ajax: yith_woocompare.nonceremove,
                     action: yith_woocompare.actionremove,
                     id: button.data('product_id'),
                     context: 'frontend',
-                    responseType: 'product_list'
+                    responseType: 'product_list',
+                    lang: lang
                 },
                 product_list = button.parents('.yith-woocompare-widget').find('ul.products-list');
 

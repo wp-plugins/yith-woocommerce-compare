@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Woocommerce Compare
- * @version 1.1.1
+ * @version 1.1.2
  */
 
 global $product;
@@ -205,7 +205,17 @@ $wc_get_template = function_exists('wc_get_template') ? 'wc_get_template' : 'woo
         // remove add to cart button after added
         $('body').on('added_to_cart', function(){
             button_clicked.hide();
-            <?php if ( $is_iframe ) : ?>$('a').attr('target', '_parent');<?php endif; ?>
+
+            <?php if ( $is_iframe ) : ?>
+            $('a').attr('target', '_parent');
+
+            // Replace fragments
+            if ( fragments ) {
+                $.each(fragments, function(key, value) {console.log( key, window.parent.document );
+                    $(key, window.parent.document).replaceWith(value);
+                });
+            }
+            <?php endif; ?>
         });
 
         // close window

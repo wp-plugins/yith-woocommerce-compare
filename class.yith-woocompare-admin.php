@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH WooCommerce Magnifier
- * @version 1.1.1
+ * @version 1.1.2
  */
 
 if ( !defined( 'YITH_WOOCOMPARE' ) ) { exit; } // Exit if accessed directly

@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Woocommerce Compare
- * @version 1.1.1
+ * @version 1.1.2
  */
 
 if ( !defined( 'YITH_WOOCOMPARE' ) ) { exit; } // Exit if accessed directly
@@ -456,6 +456,8 @@ if( !class_exists( 'YITH_Woocompare_Frontend' ) ) {
         public function remove_product_from_compare_ajax() {
             check_ajax_referer( $this->action_remove, '_yitnonce_ajax' );
 
+            $lang = isset( $_REQUEST['lang'] ) ? $_REQUEST['lang'] : false;
+
             if ( ! isset( $_REQUEST['id'] ) ) die();
 
             if ( $_REQUEST['id'] == 'all' ) {
@@ -470,7 +472,7 @@ if( !class_exists( 'YITH_Woocompare_Frontend' ) ) {
             header('Content-Type: text/html; charset=utf-8');
 
             if ( isset( $_REQUEST['responseType'] ) && $_REQUEST['responseType'] == 'product_list' ) {
-                echo $this->list_products_html();
+                echo $this->list_products_html( $lang );
             } else {
                 $this->compare_table_html();
             }
@@ -489,8 +491,17 @@ if( !class_exists( 'YITH_Woocompare_Frontend' ) ) {
         /**
          * The list of products as HTML list
          */
-        public function list_products_html() {
+        public function list_products_html( $lang = false ) {
             ob_start();
+
+            /**
+             * WPML Suppot:  Localize Ajax Call
+             */
+            global $sitepress;
+
+            if( defined( 'ICL_LANGUAGE_CODE' ) &&  $lang != false && isset( $sitepress )) {
+                $sitepress->switch_lang( $lang, true );
+            }
 
             if ( empty( $this->products_list ) ) {
                 echo '<li>' . __( 'No products to compare', 'yit' ) . '</li>';
