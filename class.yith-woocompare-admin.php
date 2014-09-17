@@ -362,8 +362,9 @@ class YITH_Woocompare_Admin {
         $width 	= WC_Admin_Settings::get_option( $value['id'] . '[width]', $value['default']['width'] );
         $height = WC_Admin_Settings::get_option( $value['id'] . '[height]', $value['default']['height'] );
         $crop   = WC_Admin_Settings::get_option( $value['id'] . '[crop]', $value['default']['crop'] );
-        $crop   = $crop == 'on' ? 1 : 0;
-        $crop 	= checked( 1, $crop, false );
+        $crop   = WC_Admin_Settings::get_option( $value['id'] . '[crop]' );
+        $crop   = ( $crop == 'on' || $crop == '1' ) ? 1 : 0;
+        $crop   = checked( 1, $crop, false );
 
         ?><tr valign="top">
             <th scope="row" class="titledesc"><?php echo esc_html( $value['title'] ) ?> <?php echo $value['desc'] ?></th>
