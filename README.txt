@@ -4,7 +4,7 @@ Contributors: yithemes
 Tags: woocommerce, compare, compare products, product compare, widget
 Requires at least: 3.5.1
 Tested up to: 4.1
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,7 @@ Working demos are available here:
 **[LIVE DEMO 1](http://preview.yithemes.com/room09/shop/)** - **[LIVE DEMO 2](http://preview.yithemes.com/bazar/shop/)**
 
 
-Full documentation is available [here](http://yithemes.com/docs-plugins/yith_woocommerce_compare/).
+Full documentation is available [here](http://yithemes.com/docs-plugins/yith-woocommerce-compare).
 
 
 This plugin is 100% compatible with [WPML](http://wpml.org/?aid=24889&affiliate_key=Qn1wDeBNTcZV)
@@ -45,7 +45,7 @@ You can also add the widget with the product list of compare table, in Appearanc
 
 = Developer =
 
-Are you a developer? Want to customize the templates or the style of the plugin? Read on the [documentation](http://yithemes.com/docs-plugins/yith_woocommerce_compare/) and discover how to do that.
+Are you a developer? Want to customize the templates or the style of the plugin? Read on the [documentation](http://yithemes.com/docs-plugins/yith-woocommerce-compare) and discover how to do that.
 
 = Support =
 
@@ -82,9 +82,15 @@ Yes, you can sort the fields in the compare table. You can do it in Woocommerce 
 3. The settings of plugin
 
 == Changelog ==
+
+= 1.2.3 =
+
+* Added: Bulgarian Translation by Joanna Mikova
+* Added: Spanish Translation by Rodoslav Angelov and Mariano Rivas
+
 = 1.2.2 =
 
-* Fixes: Shortcode compare
+* Fixed: Shortcode compare
 
 = 1.2.1 =
 
@@ -170,7 +176,7 @@ If you have created your own language pack, or have an update for an existing on
 
 == Documentation ==
 
-Full documentation is available [here](http://yithemes.com/docs-plugins/yith_woocommerce_compare/).
+Full documentation is available [here](http://yithemes.com/docs-plugins/yith-woocommerce-compare).
 
 == Upgrade notice ==
 
